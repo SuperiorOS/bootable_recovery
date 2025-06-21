@@ -206,12 +206,14 @@ static InstallResult apply_update_menu(Device* device, Device::BuiltinAction* re
 
   const int item_sideload = 0;
   const int item_virtiofs = 1;
-  unsigned int non_storage_items = 1; // ADB sideload, at least
+  unsigned int non_storage_items;
   std::vector<VolumeInfo> volumes;
 
   InstallResult status = INSTALL_NONE;
 
   for (;;) {
+    non_storage_items = 1; // ADB sideload, at least
+
     items.clear();
     items.push_back("Apply from ADB");
 
